@@ -4,9 +4,8 @@ import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 
 public class PR125cp {
-    public static void main(String[] args) {
+    public static void main(String[] args, Scanner sc) {
         try{
-            Scanner sc = new Scanner(System.in);
             System.out.println("Introdueix el path del arxiu: ");
             String pathToCopy = sc.next();
             System.out.println("Introdueix el path destí(sense el nom del arxiu): ");
@@ -20,18 +19,17 @@ public class PR125cp {
             if(!fileCopy.exists()){
                 fileCopy.createNewFile();
 
-                Scanner scFileOriginal = new Scanner(fileOriginal);
                 FileWriter fw = new FileWriter(fileCopy, true);
+                Scanner fr = new Scanner(fileOriginal);
 
-                while(scFileOriginal.hasNextLine()){
-                    fw.write(scFileOriginal.nextLine() +"\n");
+                while(fr.hasNextLine()){
+                    fw.write(fr.nextLine() +"\n");
                 }
+                fr.close();
                 fw.close();
-                scFileOriginal.close();
-            }else{System.out.println("The file already exist");}
-            sc.close();
-            
 
+            }else{System.out.println("The file already exist");}
+            sc.nextLine();
         }catch(IOException e) { e.printStackTrace(); }
     }
 }

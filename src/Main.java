@@ -21,7 +21,6 @@ public class Main {
       menu = menu + "\n 100) Sortir";
       System.out.println(menu);
 
-
       int opcio = Integer.valueOf(llegirLinia("Opció:"));
       try {
         switch (opcio) {
@@ -30,7 +29,7 @@ public class Main {
           case 2: PR123append.main(args); break;
           case 3: PR123sobreescriu.main(args); break;
           case 4: PR124linies.main(args); break;
-          case 5: PR125cp.main(args); break;
+          case 5: PR125cp.main(args, in); break;
           // Adapta aquí les altres classes de l’exercici (PR122cat…)
           case 100: running = false; break;
           default: break;
